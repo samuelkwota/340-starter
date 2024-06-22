@@ -1,4 +1,4 @@
--- Create Type
+-- Car_Type
 CREATE TYPE car_type AS ENUM ('Sedan', 'SUV', 'Truck', 'Coupe', 'Convertible');
 
 -- Create Tables
