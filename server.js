@@ -5,6 +5,7 @@
 /* ******utilities*******/
 const utilities = require('./utilities');
 
+
 // Example usage
 const formattedDate = utilities.formatDate(new Date());
 console.log('Formatted Date:', formattedDate);
@@ -17,6 +18,8 @@ console.log('Capitalized String:', capitalizedString);
 
 const isValid = utilities.isValidEmail('example@example.com');
 console.log('Is Valid Email:', isValid);
+
+
 
 /* ***********************
  * Require Statements
@@ -31,6 +34,12 @@ const static = require("./routes/static")
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render('500', { title: 'Server Error' });
+});
 
 // Index route
 app.get("/", function(req, res){
